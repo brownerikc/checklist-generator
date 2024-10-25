@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/checklistPage.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/checklistGenerator.js"></script>
+
+<script type="text/javascript" src="js/signoffPublication.js"></script>
+<script type="text/javascript" src="js/signoffContentsTab.js"></script>
+<script type="text/javascript" src="js/signoffIndex.js"></script>
+<script type="text/javascript" src="js/signoffOutputProps.js"></script>
+<script type="text/javascript" src="js/signoffBookmap.js"></script>
+<script type="text/javascript" src="js/signoffStructure.js"></script>
+<script type="text/javascript" src="js/signoffDelivery.js"></script>
+
+<script type="text/javascript" src="js/creationDefaultTopic.js"></script>
+<script type="text/javascript" src="js/creationTopics.js"></script>
+<script type="text/javascript" src="js/creationTagging.js"></script>
+<script type="text/javascript" src="js/creationArt.js"></script>
+<script type="text/javascript" src="js/creationOutputPreview.js"></script>
+<script type="text/javascript" src="js/creationManuals.js"></script>
+<script type="text/javascript" src="js/creationGlossary.js"></script>
+
+<title>Customized Checklist</title>
+</head>
+
+<body>
+<h1>Checklist Generator (Beta)</h1>
+
+<ol>
+	<li>Select your checklist and output types to get a customized checklist.</li>
+	<li>Use the Print option in your web browser to print this checklist to a PDF.<br />
+	<b>Note:</b> You can omit printing page 1 to leave out these instructions and the generator tools.</li>
+	<li>The Content Writer completes the CW column of the checklist.<br />
+	<b>Note:</b> This process may reveal that some parts of your document are not consistent with checklist expectations. Unless you have team- or product-specific exceptions, fix these items so that you can check them off.</li>
+	<li>When complete, the Content Writer hands the checklist to the Lead Reviewer, who completes the LR column. The Lead Reviewer may find additional errors in the document and should inform the Content Writer.</li>
+	<li>The Content Writer addresses the issues brought up by the Lead Reviewer.</li>
+	<li>(Default) The Lead Reviewer completes the checklist. (Some writer/reviewer pairs may choose to complete this step at the end of step 4.)</li>
+	<li>The Content Writer stores the checklist in the appropriate location (varies by team) and moves on to the Finalization Phase (localized products) or Publishing Phase (non-localized products).</li>
+</ol>
+
+<p>Feedback? Submit it <a href="mailto:brown.erik.c@gmail.com">here</a>.</p>
+
+<p><fieldset id="checklist">
+	<legend>Select your checklist type.</legend>
+	
+	<input type="radio" id="contentCreation" name="checklistType" /><label for="contentCreation">Content Creation</label><br />
+	<input type="radio" id="signoff" name="checklistType" /><label for="signoff">Signoff</label><br />
+</fieldset></p>
+
+<p><fieldset id="output">
+	<legend>Select your output types.</legend>
+	
+	<input type="checkbox" id="SPD" name="outputType" value="SPD" /><label for="SPD">SPD</label><br />
+	<input type="checkbox" id="ContextHelp" name="outputType" value="ContextHelp" /><label for="ContextHelp">Context Help</label><br />
+	<input type="checkbox" id="GuidedHelp" name="outputType" value="GuidedHelp" /><label for="GuidedHelp">Guided Help</label><br />
+	<input type="checkbox" id="PDFPrint" name="outputType" value="PDFPrint" /><label for="PDFPrint">Printed PDF</label><br />
+	<input type="checkbox" id="PDFOnline" name="outputType" value="PDFOnline" /><label for="PDFOnline">Online PDF</label><br />
+	<input type="checkbox" id="PDF_DITA" name="outputType" value="PDF_DITA" /><label for="PDF_DITA">PDF (DITA-Sourced)</label><br />
+	<input type="checkbox" id="CHM" name="outputType" value="CHM" /><label for="CHM">CHM</label><br />
+	<input type="checkbox" id="CHM_DITA" name="outputType" value="CHM_DITA" /><label for="CHM">CHM (DITA-sourced)</label><br />
+	<input type="checkbox" id="Readme" name="outputType" value="Readme" /><label for="Readme">Readme</label><br />
+</fieldset></p>
+
+<!-- This style attribute forces a page break after the button when printing. -->
+<p style="page-break-after:always;"><button onclick="parseJSON();">Generate Checklist</button></p>
+
+
+<h2 id="checklistHeader"></h2>
+<div id="formInput">
+<p>Publication Name:<br />_____________________________________________________________________________</p>
+<p>Publication Version:<br />_____________________________________________________________________________</p>
+<p>GUID:<br />_____________________________________________________________________________</p>
+<p>Part Number:<br />_____________________________________________________________________________</p>
+<p>Content Writer:<br />_____________________________________________________________________________</p>
+<p>Lead Reviewer:<br />_____________________________________________________________________________</p>
+</div>
+
+<!-- Some things ported over from current checklists:
+		class: forces the table to conform to a particular size
+		colgroup: sets the horizontal size of the colums
+-->
+<table id="checklistTable" class="wrapped fixed-table" border="1">
+    <colgroup id="tableColumns">
+        <!--<col  style="width: 45.0px;"/> <col  style="width: 40.0px;"/> <col  style="width: 46.0px;"/> <col style="width: 587.0px;"/> <col style="width: 150.0px;"/> -->
+    </colgroup>
+	<tr id="tableHeaders">
+		<!-- <th>CW</th><th>LR</th><th>N/A</th><th>Description</th><th>Output Types</th> -->
+	</tr>
+</table>
+
+<!-- This script hides the checklist content by default. -->
+
+<script>
+	document.getElementById("formInput").style.visibility = "hidden";
+	document.getElementById("checklistTable").style.visibility = "hidden";
+</script>
+ 
+</body>
+</html>

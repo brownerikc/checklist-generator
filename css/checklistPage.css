@@ -1,0 +1,16 @@
+body {
+	font-family: Arial;
+}
+
+table {
+	page-break-inside: auto;
+}
+
+tr {
+	page-break-inside: avoid;
+	page-break-after: auto;
+}
+
+#formInput br {
+	line-height: 1.8;
+}
