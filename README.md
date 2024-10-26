@@ -1,4 +1,7 @@
 # Checklist Generator
+[Checklist generator tool](https://brownerikc.github.io/checklist-generator/checklistGenerator.html)
+
+## Purpose
 I created this tool to streamline review and signoff processes for writers and help encourage greater compliance. Writers are required to complete checklists for deliverables at a few different points in the documentation process. The problem was that these checklists were poorly maintained, strewn across multiple locations and containing overlapping or possibly contracitory information. Additionally, the steps actually required depended on what type of document created. The most relevant checklists often had multiple items that were not applicable. Rather than wade through this mess, writers often considered checklists busywork and spend minimal time actually performing the tasks listed.
 
 As part of a process committee for writers, I led an effort to solve these problems by creating this tool. The result was three major accomplishments:
